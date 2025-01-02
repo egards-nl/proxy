@@ -1,52 +1,62 @@
 /**
  * Proxy Auto-Config (PAC) File
- * Refactored to allow configurable domains for proxying.
+ * All configurations and logic are contained within the FindProxyForURL function.
  */
 
-// Configuration Section
-
-// Array of domain patterns that should be routed through the proxy
-var PROXY_DOMAINS = [
-    "whatismyipaddress.com",  
-    "*.whatismyipaddress.com",
-    "parkxsconnect.com",
-    "*.parkxsconnect.com",
-    "parkxs.nl",
-    "*.parkxs.nl"
-];
-
-// Proxy server configuration
-var PROXY_SERVER = "PROXY vpn.egards.nl:3128";
-
-// Direct connection configuration
-var DIRECT_CONNECTION = "DIRECT";
-
-/**
- * Determines whether the given host matches any pattern in the specified list.
- *
- * @param {string} host - The hostname of the URL being accessed.
- * @param {Array} patterns - An array of domain patterns to match against the host.
- * @return {boolean} - Returns true if a match is found; otherwise, false.
- */
-function isHostMatch(host, patterns) {
-    for (var i = 0; i < patterns.length; i++) {
-        if (shExpMatch(host, patterns[i])) {
-            return true;
-        }
-    }
-    return false;
-}
-
-/**
- * The main function that determines the appropriate proxy for a given URL.
- *
- * @param {string} url - The full URL being accessed.
- * @param {string} host - The hostname extracted from the URL.
- * @return {string} - Returns the proxy configuration string.
- */
 function FindProxyForURL(url, host) {
-    if (isHostMatch(host, PROXY_DOMAINS)) {
-        return PROXY_SERVER;
+    // Configuration Section
+
+    // List of domains that should be routed through the proxy.
+    // Each domain is listed only once; both root and subdomains are handled.
+    var proxyDomains = [
+        "whatismyipaddress.com",
+        "parkxsconnect.com",
+        "parkxs.nl"
+    ];
+
+    // Proxy server configuration
+    var proxyServer = "PROXY vpn.egards.nl:3128";
+
+    // Direct connection configuration
+    var directConnection = "DIRECT";
+
+    /**
+     * Helper function to determine if the host matches any domain in the list,
+     * including both root domains and their subdomains.
+     *
+     * @param {string} host - The hostname of the URL being accessed.
+     * @param {Array} domains - An array of domains to match against the host.
+     * @return {boolean} - Returns true if a match is found; otherwise, false.
+     */
+    function isHostMatch(host, domains) {
+        // Convert host to lowercase to ensure case-insensitive matching
+        var lowerHost = host.toLowerCase();
+
+        // Iterate through each domain in the list
+        for (var i = 0; i < domains.length; i++) {
+            var domain = domains[i].toLowerCase();
+
+            // Exact match for the root domain
+            if (lowerHost === domain) {
+                return true;
+            }
+
+            // Check if the host is a subdomain of the current domain
+            // For example, sub.example.com ends with .example.com
+            if (lowerHost.endsWith("." + domain)) {
+                return true;
+            }
+        }
+
+        // No matches found
+        return false;
     }
-    return DIRECT_CONNECTION;
+
+    // Determine whether to use the proxy or direct connection based on the host
+    if (isHostMatch(host, proxyDomains)) {
+        return proxyServer;
+    }
+
+    // Default to direct connection if no match is found
+    return directConnection;
 }
