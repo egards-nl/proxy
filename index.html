@@ -2,53 +2,151 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Egards VPN Proxy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egards VPN Config</title>
     <style>
-        /* Basic styling for layout */
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset some default browser styles */
+        body, h1, h2, h3, p, pre, code, img, a {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        header, nav, main, footer {
-            padding: 20px;
-            margin: 10px;
-        }
-        header {
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
         }
-        nav {
-            background-color: #333;
+
+        /* Container for the content */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        nav a {
-            color: #fff;
-            margin-right: 15px;
+
+        /* Headings */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        /* Paragraphs */
+        p {
+            margin-bottom: 15px;
+        }
+
+        /* Links */
+        a {
+            color: #2980b9;
             text-decoration: none;
         }
-        main {
-            min-height: 300px;
+
+        a:hover {
+            text-decoration: underline;
         }
-        footer {
-            background-color: #f4f4f4;
-            text-align: center;
+
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: #fff;
+        }
+
+        /* Code Blocks */
+        pre {
+            background: #2d2d2d;
+            color: #ccc;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* Responsive Images */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Egards VPN Proxy</h1>
+        <p>This document shows how to use VPN proxy to access some Egards services like ParkXS.</p>
 
-    <header>
-        <h1>Egards VPN Config</h1>
-    </header>
+        <h2>Browser Extension</h2>
+        <p>
+            The recommended browser extension for the proxy is <strong>Proxy Switcher</strong> which can be found on the 
+            <a href="https://chromewebstore.google.com/detail/proxy-switcher/iejkjpdckomcjdhmkemlfdapjodcpgih" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>. 
+            To ensure that the extension is active, it should be <strong>pinned</strong>.
+        </p>
+        <img src="img/pac.js-first-screen.png" alt="Proxy Switcher">
 
-    <main>
-        <h2>Enabling VPN</h2>
-        <p></p>
-    </main>
+        <h2>Configuration</h2>
+        <p>
+            The proxy can be configured using a Proxy Auto-Config (PAC) file. For Egards, PAC file is already created 
+            and available on the URL below.
+        </p>
 
-    <footer>
-        <p>&copy; 2025 Egards BV</p>
-    </footer>
+        <h3>PAC URL</h3>
+        <pre><code class="language-js">
+https://proxy.egards.nl/pac.js
+        </code></pre>
 
+        <p>
+            To complete the configuration, on the browser extension select PAC, and enter the PAC URL.
+        </p>
+        <img src="img/proxy-switcher-select-pac.png" alt="PAC URL">
+
+        <h2>Using the VPN Proxy</h2>
+        <p>
+            To use the proxy, simply visit the Egards applications like ParkXS. On Chrome, it will trigger a pop up 
+            asking for username and password for the proxy. Once the correct username and password is entered and 
+            accepted, it should be set automatically set for future visits.
+        </p>
+        <p>
+            For the proxy username and password, please contact Egards Administrator.
+        </p>
+    </div>
 </body>
 </html>
