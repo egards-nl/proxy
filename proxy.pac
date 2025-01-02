@@ -7,8 +7,11 @@
 
 // Array of domain patterns that should be routed through the proxy
 var PROXY_DOMAINS = [
+    "whatismyipaddress.com",  
     "*.whatismyipaddress.com",
+    "parkxsconnect.com",
     "*.parkxsconnect.com",
+    "parkxs.nl",
     "*.parkxs.nl"
 ];
 
