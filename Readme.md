@@ -16,7 +16,7 @@ and is available at the URL below.
 
 ### PAC URL
 
-```js
+```
 https://proxy.egards.nl/pac.js
 ```
 
