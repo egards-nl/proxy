@@ -10,6 +10,7 @@ function FindProxyForURL(url, host) {
     // Each domain is listed only once; both root and subdomains are handled.
     var proxyDomains = [
         "whatismyipaddress.com",
+        "webbrowsertools.com",
         "parkxsconnect.com",
         "parkxs.nl"
     ];
