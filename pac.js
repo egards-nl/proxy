@@ -13,7 +13,7 @@ function FindProxyForURL(url, host) {
         "webbrowsertools.com",
         "parkxsconnect.com",
         "parkxs.nl",
-        "egards.fluxcloud.eu"
+        "fluxcloud.eu"
     ];
 
     // Proxy server configuration
