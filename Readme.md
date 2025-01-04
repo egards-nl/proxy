@@ -15,10 +15,23 @@ The proxy can be configured using a Proxy Auto-Config (PAC) file. For Egards, th
 and is available at the URL below.
 
 ### PAC URL
-
+#### 1. PAC URL for whitelisted domains only
 ```
 https://proxy.egards.nl/pac.js
 ```
+Under this configuration, the following (sub) domains are whitelisted:
+- whatismyipaddress.com
+- webbrowsertools.com
+- parkxsconnect.com
+- parkxs.nl
+- fluxcloud.eu
+
+#### 1. PAC URL for blacklisted domains only
+```
+https://proxy.egards.nl/all.js
+```
+Under this configuration, all domains are proxied excep the following:
+- youtube.com
 
 To complete the configuration, select PAC in the browser extension and enter the PAC URL.
 
