@@ -13,7 +13,8 @@ function FindProxyForURL(url, host) {
         "webbrowsertools.com",
         "parkxsconnect.com",
         "parkxs.nl",
-        "xpark.eu"
+        "xpark.eu",
+        "brickyard.eu"
     ];
 
     // Proxy server configuration
