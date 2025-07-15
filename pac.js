@@ -15,7 +15,8 @@ function FindProxyForURL(url, host) {
         "parkxs.nl",
         "xpark.eu",
         "brickyard.eu",
-        "xpots.nl"
+        "xpots.nl",
+        "wpsenterprise.com"
     ];
 
     // Proxy server configuration
