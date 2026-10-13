@@ -17,7 +17,8 @@ var egards_vpn__l_domain = [
     "xpots.nl",
     "wpsenterprise.com",
     "skidata.com",
-    "tkhsecurity.com"
+    "tkhsecurity.com",
+    "jmscloud.com"
 ];
 
 // Set-like map of domains that should be routed through the proxy.
