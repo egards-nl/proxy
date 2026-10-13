@@ -18,7 +18,8 @@ function FindProxyForURL(url, host) {
            "xpots.nl",
            "wpsenterprise.com",
            "skidata.com",
-           "tkhsecurity.com"
+           "tkhsecurity.com",
+           "jmscloud.com"
     ];
 
     // Proxy server configuration
